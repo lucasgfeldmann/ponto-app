@@ -1,24 +1,23 @@
-import { Text, type TextProps, StyleSheet } from 'react-native';
+import { Text, type TextProps, StyleSheet, TextInput } from 'react-native';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 
-export type ThemedTextProps = TextProps & {
+export type ThemedInputProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
 };
 
-export function ThemedText({
+export function ThemedInput({
   style,
   lightColor,
   darkColor,
   type = 'default',
   ...rest
-}: ThemedTextProps) {
+}: ThemedInputProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
   return (
-    <Text
+    <TextInput
       style={[
         { color },
         type === 'default' ? styles.default : undefined,
@@ -28,15 +27,21 @@ export function ThemedText({
         type === 'link' ? styles.link : undefined,
         style,
       ]}
-      {...rest}
     />
   );
 }
 
 const styles = StyleSheet.create({
   default: {
-    fontSize: 16,
-    lineHeight: 24,
+    backgroundColor: '#E4F2E4',
+    width:'100%',
+    borderRadius: 8,
+    lineHeight: 30,
+    borderWidth: 2,
+    borderColor: '#010409',
+    fontSize: 26,
+    height: 50,
+    paddingHorizontal: 8,
   },
   defaultSemiBold: {
     fontSize: 16,
