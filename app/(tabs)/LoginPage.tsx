@@ -1,4 +1,4 @@
-import { Alert, Pressable, StyleSheet } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -6,19 +6,19 @@ import { ThemedInput } from '@/components/ThemedInput';
 import { ThemedButton } from '@/components/ThemedButton';
 
 export default function HomeScreen() {
-
-  function doSomethin(): void {
-    Alert.alert("Some Alert", "Here there is some alert")
-  }
-
-
   return (
+
     <ThemedView style={styles.titleContainer}>
-      <ThemedText type="title">00:00:00</ThemedText>
-      <ThemedText type='default'>Category</ThemedText>
-      <Pressable style={{ width: '90%' }} onPress={() => doSomethin()}>
+      <ThemedText type="title">PONTO</ThemedText>
+      <ThemedView style={{ width: '90%', gap: 8 }}>
+        <ThemedText type="default">Email</ThemedText>
+        <ThemedInput />
+        <ThemedText type="default">Password</ThemedText>
+        <ThemedInput />
+      </ThemedView>
+      <Pressable style={{ width: '90%' }}>
         <ThemedButton style={styles.button}>
-          <ThemedText style={styles.buttonText}>START</ThemedText>
+          <ThemedText style={styles.buttonText}>LOGIN</ThemedText>
         </ThemedButton>
       </Pressable>
     </ThemedView>
